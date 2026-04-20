@@ -18,6 +18,12 @@ const eslintConfig = [
       "out/**",
       "build/**",
       "next-env.d.ts",
+      "artifacts/**",
+      "e2e/**",
+      "download_assets.js",
+      "fetch_screens.js",
+      "migrate_stitch.js",
+      "refactor_pages.js",
     ],
   },
 ];

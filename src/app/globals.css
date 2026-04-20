@@ -1,26 +1,99 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f6f0e9;
+  --background-strong: #efe4d8;
+  --foreground: #2f231b;
+  --muted-foreground: #6b5d53;
+  --accent: #b99372;
+  --accent-dark: #855f43;
+  --panel: rgba(255, 251, 247, 0.84);
+  --panel-strong: #fffaf5;
+  --line: rgba(84, 59, 41, 0.14);
+  --shadow: 0 24px 80px rgba(72, 48, 30, 0.09);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(222, 202, 181, 0.6), transparent 28%),
+    linear-gradient(180deg, #fbf7f2 0%, #f6f0e9 46%, #f4ede5 100%);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), sans-serif;
+}
+
+img {
+  image-rendering: auto;
+}
+
+a,
+button,
+input,
+textarea,
+select {
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease,
+    opacity 180ms ease;
+}
+
+::selection {
+  background: rgba(185, 147, 114, 0.22);
+}
+
+.container-wide {
+  width: min(1280px, calc(100vw - 2rem));
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .container-wide {
+    width: min(1280px, calc(100vw - 4rem));
+  }
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+.grain-panel {
+  background:
+    linear-gradient(180deg, rgba(255, 251, 247, 0.86), rgba(255, 248, 241, 0.78)),
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.7), transparent 56%);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.hero-overlay {
+  background:
+    linear-gradient(90deg, rgba(25, 18, 13, 0.68) 0%, rgba(25, 18, 13, 0.18) 52%, rgba(25, 18, 13, 0.04) 100%),
+    linear-gradient(180deg, rgba(25, 18, 13, 0.15), rgba(25, 18, 13, 0.55));
+}
+
+.soft-divider {
+  border-top: 1px solid rgba(84, 59, 41, 0.1);
+}
+
+.font-serif-display {
+  font-family: var(--font-serif), serif;
+}
+
+.section-deferred {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 900px;
 }
