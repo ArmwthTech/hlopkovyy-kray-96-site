@@ -3,9 +3,11 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
-import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
+import { motion, useReducedMotion, useScroll, useTransform, type Variants } from 'framer-motion'
 
-const copyAnimation = {
+const easeOutQuint = [0.22, 1, 0.36, 1] as const
+
+const copyAnimation: Variants = {
   hidden: { opacity: 0, y: 28 },
   visible: (index: number) => ({
     opacity: 1,
@@ -13,7 +15,7 @@ const copyAnimation = {
     transition: {
       duration: 0.8,
       delay: 0.15 + index * 0.12,
-      ease: [0.22, 1, 0.36, 1],
+      ease: easeOutQuint,
     },
   }),
 }
